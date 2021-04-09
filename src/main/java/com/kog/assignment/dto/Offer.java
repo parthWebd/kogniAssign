@@ -19,7 +19,7 @@ public class Offer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
-	private String location;
+	
 
 	@JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate validFrom;
@@ -27,9 +27,10 @@ public class Offer {
 	@JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate validTo;
 	
+	private String location;
 	
 	@Column(name = "Image", length = 100000)
-	private byte[] picByte;
+	private byte[] image;
 
 	public int getId() {
 		return id;
@@ -81,11 +82,11 @@ public class Offer {
 	}
 
 	public byte[] getPicByte() {
-		return picByte;
+		return image;
 	}
 
 	public void setPicByte(byte[] picByte) {
-		this.picByte = picByte;
+		this.image = picByte;
 	}
 
 	public Offer() {

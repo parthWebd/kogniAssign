@@ -39,14 +39,17 @@ public class OfferService {
 	@Autowired
 	private ServiceHelpInt serviceHelp;
 
-	public void addOffer(Offer offer) throws IOException {
+	public Offer addOffer(Offer offer) throws IOException {
 		// TODO Auto-generated method stub
+		System.out.println("Inside Offer Service");
 		byte[] downloadedImage = serviceHelp.getDownloadedImage();
 		offer.setPicByte(serviceHelp.compressBytes(downloadedImage));
-		offerRepo.save(offer);
+		Offer of = offerRepo.save(offer);
+		return of;
 	}
 
 	public List<Offer> getAllOffer() {
+		System.out.println("Inside Offer Service : Get All Offer");
 		ArrayList<Offer> list = (ArrayList<Offer>) offerRepo.findAll();
 		return list;
 	}

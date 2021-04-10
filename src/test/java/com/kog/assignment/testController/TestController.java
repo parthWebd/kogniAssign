@@ -34,8 +34,6 @@ public class TestController {
 	
 	@MockBean
 	private OfferService offerService;
-	@Mock
-	private OfferService ser;
 	
 	
 	private Offer offer;
@@ -63,7 +61,6 @@ public class TestController {
 				.andExpect(status().isOk())
 				.andReturn();
 		
-		System.out.println("JJJJJJJJJJJJAOOOOO = "+response.getResponse().getContentAsString());
 		assertTrue(response.getResponse().getContentAsString().contains("Bangluru"));
 	}
 	

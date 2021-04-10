@@ -40,7 +40,7 @@ public class OfferController {
 		Offer of = null;
 		try {
 			of = offerSer.addOffer(offer);
-			System.out.println("Inside controller " + of);
+//			System.out.println("Inside controller " + of);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

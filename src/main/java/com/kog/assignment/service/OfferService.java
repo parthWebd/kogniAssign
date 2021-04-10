@@ -41,7 +41,7 @@ public class OfferService {
 
 	public Offer addOffer(Offer offer) throws IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Inside Offer Service");
+//		System.out.println("Inside Offer Service");
 		byte[] downloadedImage = serviceHelp.getDownloadedImage();
 		offer.setPicByte(serviceHelp.compressBytes(downloadedImage));
 		Offer of = offerRepo.save(offer);
@@ -49,7 +49,7 @@ public class OfferService {
 	}
 
 	public List<Offer> getAllOffer() {
-		System.out.println("Inside Offer Service : Get All Offer");
+//		System.out.println("Inside Offer Service : Get All Offer");
 		ArrayList<Offer> list = (ArrayList<Offer>) offerRepo.findAll();
 		return list;
 	}

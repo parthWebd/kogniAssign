@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,20 +24,18 @@ public class OfferController {
 	@Autowired
 	private OfferService offerSer;
 
-	@GetMapping("/offer")
+	@GetMapping(value = "/offer",produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<List<Offer>> getOffer() {
-		LocalDate fr = LocalDate.of(2021, 1, 13);
-		LocalDate to = LocalDate.of(2027, 1, 13);
-		Offer o = new Offer("Parth", "Bangluru", fr, to);
-
 		List<Offer> list = offerSer.getAllOffer();
-
 		ResponseEntity<List<Offer>> res = new ResponseEntity<>(list, HttpStatus.OK);
 		return res;
 	}
+	
 
 	@PostMapping("/offer")
 	public String postOffer(@RequestBody Offer offer) {
+		System.out.println("To add offer"+offer);
+		
 		Offer of = null;
 		try {
 			of = offerSer.addOffer(offer);
